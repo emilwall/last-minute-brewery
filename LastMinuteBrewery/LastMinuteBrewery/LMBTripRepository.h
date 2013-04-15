@@ -12,4 +12,7 @@
 
 - (NSArray *)getAllAirports;
 
+- (NSArray *)getOffersFrom:(NSString *)airport To:(NSString *)destination On:(NSString *)date;
+
+
 @end

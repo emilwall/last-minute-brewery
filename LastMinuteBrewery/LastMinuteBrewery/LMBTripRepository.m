@@ -16,4 +16,9 @@
     return airports;
 }
 
+- (NSArray *)getOffersFrom:(NSString *)airport To:(NSString *)destination On:(NSString *)date
+{
+    return [NSArray arrayWithObjects: @"Dummy1", @"Dummy2", @"Dummy3", nil];
+}
+
 @end
