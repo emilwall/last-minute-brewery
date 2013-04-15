@@ -4,7 +4,41 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Trip Table View Controller - Available trips-->
+        <!--View Controller - Sök-->
+        <scene sceneID="kwX-wE-znc">
+            <objects>
+                <viewController id="YHv-6l-LUL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JGg-zM-skg">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ozC-jL-kiA">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Sök">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="r2i-tU-75Y" kind="push" id="Aq9-Be-m7h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ozC-jL-kiA" secondAttribute="bottom" constant="109" id="KcQ-hG-hFH"/>
+                            <constraint firstItem="ozC-jL-kiA" firstAttribute="centerX" secondItem="JGg-zM-skg" secondAttribute="centerX" type="default" id="VEt-oJ-yYs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sök" id="czR-hO-wiP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="80q-KD-P6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="385" y="217"/>
+        </scene>
+        <!--Trip Table View Controller - Tillgängliga resor-->
         <scene sceneID="Xhf-Oz-al6">
             <objects>
                 <tableViewController id="r2i-tU-75Y" customClass="LMBTripTableViewController" sceneMemberID="viewController">
@@ -13,22 +47,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fKJ-qH-aku" customClass="LMBTripTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="fKJ-qH-aku" customClass="LMBTripTableViewCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJr-wb-vin">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="TJr-wb-vin" firstAttribute="leading" secondItem="fKJ-qH-aku" secondAttribute="leading" constant="74" id="AfC-Bw-lYv"/>
+                                    <constraint firstItem="TJr-wb-vin" firstAttribute="top" secondItem="fKJ-qH-aku" secondAttribute="top" constant="11" id="Akl-mo-5dk"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="titleLabel" destination="TJr-wb-vin" id="UeD-HP-BLG"/>
+                                    <segue destination="yOV-SF-OSJ" kind="push" id="qID-o1-NfM"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Available trips" id="k3x-9c-mQ8"/>
+                    <navigationItem key="navigationItem" title="Tillgängliga resor" id="k3x-9c-mQ8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIL-To-BaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="476" y="217"/>
+            <point key="canvasLocation" x="798" y="217"/>
+        </scene>
+        <!--View Controller - Resa-->
+        <scene sceneID="o1K-jl-Poo">
+            <objects>
+                <viewController id="yOV-SF-OSJ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V1m-hO-7lh">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Resa" id="eg0-Zq-VQZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7jw-K2-i6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207" y="217"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TuU-bN-TYD">
@@ -38,7 +102,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="r2i-tU-75Y" kind="relationship" relationship="rootViewController" id="zOF-jk-2eI"/>
+                        <segue destination="YHv-6l-LUL" kind="relationship" relationship="rootViewController" id="1LR-aK-NPo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeK-vM-uWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -46,6 +110,20 @@
             <point key="canvasLocation" x="-58" y="217"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="LMBTripTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LMBTripTableViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LMBTripTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LMBTripTableViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

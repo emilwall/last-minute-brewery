@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LMBTripTableViewCell : UITableViewCell
-
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) NSString *title;
 @end

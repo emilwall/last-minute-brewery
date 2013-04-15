@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11030502171C49C6001C32C0 /* LMBTripRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 11030501171C49C6001C32C0 /* LMBTripRepository.m */; };
 		D238C449171C4661007F2D87 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C437171C4661007F2D87 /* AFHTTPClient.m */; };
 		D238C44A171C4661007F2D87 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C439171C4661007F2D87 /* AFHTTPRequestOperation.m */; };
 		D238C44B171C4661007F2D87 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C43B171C4661007F2D87 /* AFImageRequestOperation.m */; };
@@ -32,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11030500171C49C6001C32C0 /* LMBTripRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBTripRepository.h; sourceTree = "<group>"; };
+		11030501171C49C6001C32C0 /* LMBTripRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBTripRepository.m; sourceTree = "<group>"; };
 		D238C436171C4661007F2D87 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		D238C437171C4661007F2D87 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		D238C438171C4661007F2D87 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -87,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110304FF171C49B3001C32C0 /* Trip */ = {
+			isa = PBXGroup;
+			children = (
+				11030500171C49C6001C32C0 /* LMBTripRepository.h */,
+				11030501171C49C6001C32C0 /* LMBTripRepository.m */,
+			);
+			name = Trip;
+			sourceTree = "<group>";
+		};
 		D238C435171C4661007F2D87 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +156,7 @@
 		E5AE7AEF171C413400D407D4 /* LastMinuteBrewery */ = {
 			isa = PBXGroup;
 			children = (
+				110304FF171C49B3001C32C0 /* Trip */,
 				E5AE7AF8171C413400D407D4 /* LMBAppDelegate.h */,
 				E5AE7AF9171C413400D407D4 /* LMBAppDelegate.m */,
 				E5AE7B01171C413400D407D4 /* MainStoryboard.storyboard */,
@@ -253,6 +266,7 @@
 				D238C44F171C4661007F2D87 /* AFURLConnectionOperation.m in Sources */,
 				D238C450171C4661007F2D87 /* AFXMLRequestOperation.m in Sources */,
 				D238C451171C4661007F2D87 /* UIImageView+AFNetworking.m in Sources */,
+				11030502171C49C6001C32C0 /* LMBTripRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
