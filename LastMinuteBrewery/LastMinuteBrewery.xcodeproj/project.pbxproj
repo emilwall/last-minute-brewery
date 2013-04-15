@@ -17,6 +17,7 @@
 		D238C44F171C4661007F2D87 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C444171C4661007F2D87 /* AFURLConnectionOperation.m */; };
 		D238C450171C4661007F2D87 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C446171C4661007F2D87 /* AFXMLRequestOperation.m */; };
 		D238C451171C4661007F2D87 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C448171C4661007F2D87 /* UIImageView+AFNetworking.m */; };
+		D238C456171C61A1007F2D87 /* LMBOffer.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C455171C61A1007F2D87 /* LMBOffer.m */; };
 		E5AE7AEA171C413400D407D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AE7AE9171C413400D407D4 /* UIKit.framework */; };
 		E5AE7AEC171C413400D407D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AE7AEB171C413400D407D4 /* Foundation.framework */; };
 		E5AE7AEE171C413400D407D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AE7AED171C413400D407D4 /* CoreGraphics.framework */; };
@@ -54,6 +55,8 @@
 		D238C446171C4661007F2D87 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		D238C447171C4661007F2D87 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		D238C448171C4661007F2D87 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		D238C454171C61A1007F2D87 /* LMBOffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBOffer.h; sourceTree = "<group>"; };
+		D238C455171C61A1007F2D87 /* LMBOffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBOffer.m; sourceTree = "<group>"; };
 		E5AE7AE6171C413400D407D4 /* LastMinuteBrewery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LastMinuteBrewery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AE7AE9171C413400D407D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E5AE7AEB171C413400D407D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -125,6 +128,15 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		D238C453171C6183007F2D87 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D238C454171C61A1007F2D87 /* LMBOffer.h */,
+				D238C455171C61A1007F2D87 /* LMBOffer.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		E5AE7ADD171C413400D407D4 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +168,7 @@
 		E5AE7AEF171C413400D407D4 /* LastMinuteBrewery */ = {
 			isa = PBXGroup;
 			children = (
+				D238C453171C6183007F2D87 /* Models */,
 				110304FF171C49B3001C32C0 /* Trip */,
 				E5AE7AF8171C413400D407D4 /* LMBAppDelegate.h */,
 				E5AE7AF9171C413400D407D4 /* LMBAppDelegate.m */,
@@ -267,6 +280,7 @@
 				D238C450171C4661007F2D87 /* AFXMLRequestOperation.m in Sources */,
 				D238C451171C4661007F2D87 /* UIImageView+AFNetworking.m in Sources */,
 				11030502171C49C6001C32C0 /* LMBTripRepository.m in Sources */,
+				D238C456171C61A1007F2D87 /* LMBOffer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
