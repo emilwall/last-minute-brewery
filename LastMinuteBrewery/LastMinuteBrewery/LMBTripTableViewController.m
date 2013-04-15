@@ -12,6 +12,8 @@
 
 @interface LMBTripTableViewController ()
 @property (nonatomic, strong) LMBTripRepository *tripRepository;
+@property (nonatomic, strong) NSArray *results;
+@property (nonatomic, strong) NSString *airport, *destination, *date;
 @end
 
 @implementation LMBTripTableViewController
@@ -32,6 +34,7 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     self.tripRepository = [[LMBTripRepository alloc] init];
+    self.results = [self.tripRepository getAllAirports];
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
