@@ -20,7 +20,8 @@
 
 - (void)getOffersFrom:(NSString *)airport
                    to:(NSString *)destination
-                   on:(NSString *)date success:(void (^)(NSArray *result))success
+                   on:(NSString *)date
+              success:(void (^)(NSArray *result))success
               failure:(void (^)(NSError *error))failure
 {
     NSString *path = [[NSString alloc] initWithFormat:@"/offers/from/%@/", airport];
