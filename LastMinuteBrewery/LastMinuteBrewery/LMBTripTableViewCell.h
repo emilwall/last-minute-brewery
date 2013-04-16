@@ -11,4 +11,5 @@
 @interface LMBTripTableViewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) IBOutlet UILabel *price;
 @end

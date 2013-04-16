@@ -77,7 +77,8 @@
     
     NSString *item = [self.results objectAtIndex:indexPath.row];
     cell.titleLabel.text = ((LMBOffer*)item).destination;
-    
+    cell.price.text = [((LMBOffer*)item).price stringValue];
+    //cell.price.text = ((LMBOffer*)item).destination;
     return cell;
 }
 

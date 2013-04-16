@@ -38,6 +38,7 @@
          for(NSDictionary *dict in responseObject) {
              //NSLog(@"%@ -> %@",[dict valueForKey:@"destination"], [dict valueForKey:@"city"]);
              LMBOffer *offer = [[LMBOffer alloc] init];
+             
              offer.price = [dict valueForKey:@"price"];
              offer.destination = [dict valueForKey:@"destination"];
              [result addObject:offer];

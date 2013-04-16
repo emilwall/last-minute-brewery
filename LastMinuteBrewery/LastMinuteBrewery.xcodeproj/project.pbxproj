@@ -111,6 +111,7 @@
 		110304FF171C49B3001C32C0 /* Trip */ = {
 			isa = PBXGroup;
 			children = (
+				11030500171C49C6001C32C0 /* LMBTripRepository.h */,
 				11030501171C49C6001C32C0 /* LMBTripRepository.m */,
 			);
 			name = Trip;
@@ -202,7 +203,6 @@
 				11030567171D7D9B001C32C0 /* LMBSearchViewController.h */,
 				11030568171D7D9B001C32C0 /* LMBSearchViewController.m */,
 				E5AE7B0F171C436600D407D4 /* LMBTripTableViewCell.h */,
-				11030500171C49C6001C32C0 /* LMBTripRepository.h */,
 				E5AE7B10171C436600D407D4 /* LMBTripTableViewCell.m */,
 				E5AE7B0C171C421300D407D4 /* LMBTripTableViewController.h */,
 				E5AE7B0D171C421300D407D4 /* LMBTripTableViewController.m */,
