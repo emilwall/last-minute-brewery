@@ -11,5 +11,18 @@
 @class LMBOffer;
 
 @interface LMBOfferViewController : UIViewController
+
+@property (nonatomic, strong) IBOutlet UIImageView *image;
+@property (nonatomic, strong) IBOutlet UILabel *dateLabel;
+@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) IBOutlet UILabel *departureLabel;
+@property (nonatomic, strong) IBOutlet UILabel *durationLabel;
+@property (nonatomic, strong) IBOutlet UILabel *priceLabel;
+@property (nonatomic, strong) IBOutlet UIWebView *hotelWebView;
+
+
 @property (nonatomic, strong) LMBOffer *offer;
+
+- (IBAction)bookingAction:(id)sender;
+
 @end
