@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LMBOfferViewController : UIViewController
+@class LMBOffer;
 
+@interface LMBOfferViewController : UIViewController
+@property (nonatomic, strong) LMBOffer *offer;
 @end
