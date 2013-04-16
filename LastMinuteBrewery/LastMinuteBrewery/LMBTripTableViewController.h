@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LMBTripTableViewController : UITableViewController
+@interface LMBTripTableViewController : UITableViewController<UISearchBarDelegate>
 
 @property (nonatomic, strong) NSString *airport, *destination, *date;
-
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText;
 @end

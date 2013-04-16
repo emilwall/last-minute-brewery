@@ -14,6 +14,7 @@
 @interface LMBTripTableViewController ()
 @property (nonatomic, strong) LMBTripRepository *tripRepository;
 @property (nonatomic, strong) NSArray *results;
+@property (nonatomic, strong) NSArray *resultshadow;
 @end
 
 @implementation LMBTripTableViewController
@@ -38,7 +39,8 @@
     self.tripRepository = [[LMBTripRepository alloc] init];
 
     [self.tripRepository getOffersFrom:self.airport to:self.destination on:self.date success:^(NSArray *result) {
-        self.results = result;
+        self.resultshadow = result;
+        self.results = self.resultshadow;
         [self.tableView reloadData ];
     } failure:^(NSError *error) {
         NSLog(@"Outer error!");
@@ -55,9 +57,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)didSearch
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    if([searchText length] > 0)
+    {
     
+        NSMutableArray *tmpArr = [NSMutableArray array];
+        [self.resultshadow enumerateObjectsUsingBlock:^(LMBOffer *obj, NSUInteger idx, BOOL *stop) {
+            if([obj.destination hasPrefix:searchText]){
+                [tmpArr addObject:obj];
+            }
+        }];
+        self.results = tmpArr;
+        [self.tableView reloadData];
+    }
+    else
+    {
+        self.results = self.resultshadow;
+    }
 }
 
 #pragma mark - Table view data source
