@@ -7,7 +7,7 @@
 //
 
 #import "LMBOfferViewController.h"
-#import "LMBOffer.h"
+
 
 @interface LMBOfferViewController ()
 
@@ -29,9 +29,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.tripRepository = [[LMBTripRepository alloc] init];
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
-    self.offer = [[LMBOffer alloc] initWithBookingURL:[NSURL URLWithString:@"http://google.se"] andCity:@"Paris" andDate:[formatter dateFromString:@"2013-04-08T10:05:00.0000000+00:00"] andDays:[NSNumber numberWithInt: 7] andDeparture:@"Stockholm" andDestination:@"Paris" andHotelID:@"14" andPrice:[NSNumber numberWithInt: 3303] andRemaining:[NSNumber numberWithInt: 2] andRoomDesc:@"dubbelrum"];
+    self.offer = [[LMBOffer alloc] initWithBookingURL:[NSURL URLWithString:@"http://google.se"] andCity:@"Paris" andDate:[formatter dateFromString:@"2013-04-08T10:05:00.0000000+00:00"] andDays:[NSNumber numberWithInt: 7] andDeparture:@"Stockholm" andDestination:@"Paris" andHotelID:@"49" andPrice:[NSNumber numberWithInt: 3303] andRemaining:[NSNumber numberWithInt: 2] andRoomDesc:@"dubbelrum"];
     
     [self updateViewWithOffer: self.offer];
     
@@ -43,6 +45,32 @@
     self.priceLabel.text = [offer.price stringValue];
     self.departureLabel.text = offer.departure;
     self.durationLabel.text = [offer.days stringValue];
+    
+    if (![self.offer.hotelid isEqualToString:@""]) {
+        [self.tripRepository getHotelByHotelID:self.offer.hotelid onSuccess:^(NSDictionary *result) {
+            NSLog(@"%@", [result valueForKey:@"name"]);
+            [self.hotelWebView loadHTMLString:[result valueForKey:@"html"] baseURL:nil];
+        } onFailure:^(NSError *error) {
+            NSLog(@"Fail");
+        }];
+    }
+    
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)aWebView {
+    CGRect frame = aWebView.frame;
+    frame.size.height = 1;
+    aWebView.frame = frame;
+    CGSize fittingSize = [aWebView sizeThatFits:CGSizeZero];
+    frame.size = fittingSize;
+    aWebView.frame = frame;
+    
+    NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
+}
+
+- (IBAction)bookingAction:(id)sender
+{
+
 }
 
 - (void)didReceiveMemoryWarning

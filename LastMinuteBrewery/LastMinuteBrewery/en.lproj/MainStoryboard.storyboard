@@ -262,10 +262,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <webView contentMode="scaleToFill" id="m6b-Zk-CL6">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="m6b-Zk-CL6">
                                 <rect key="frame" x="0.0" y="303" width="320" height="201"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="yOV-SF-OSJ" id="akA-0Z-fRC"/>
+                                </connections>
                             </webView>
                             <view contentMode="scaleToFill" id="RDD-lb-m0d">
                                 <rect key="frame" x="0.0" y="457" width="320" height="47"/>

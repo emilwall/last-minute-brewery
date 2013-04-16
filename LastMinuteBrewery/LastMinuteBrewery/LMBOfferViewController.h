@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LMBTripRepository.h"
+#import "LMBOffer.h"
 
-@class LMBOffer;
-
-@interface LMBOfferViewController : UIViewController
+@interface LMBOfferViewController : UIViewController <UIWebViewDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UIImageView *image;
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
@@ -22,6 +22,7 @@
 
 
 @property (nonatomic, strong) LMBOffer *offer;
+@property (nonatomic, strong) LMBTripRepository *tripRepository;
 
 - (IBAction)bookingAction:(id)sender;
 

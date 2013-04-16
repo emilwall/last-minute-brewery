@@ -17,5 +17,8 @@
                    on:(NSString *)date success:(void (^)(NSArray *result))success
               failure:(void (^)(NSError *error))failure;
 
+- (void)getHotelByHotelID: (NSString *) hotelid
+                onSuccess: (void (^)(NSDictionary *result))success
+                onFailure:(void (^)(NSError *error))failure;
 
 @end
