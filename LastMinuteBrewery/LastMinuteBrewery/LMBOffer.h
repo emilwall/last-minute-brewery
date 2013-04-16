@@ -21,4 +21,6 @@
 @property (nonatomic, strong) NSNumber *remaining;
 @property (nonatomic, strong) NSString *roomDesc;
 
+- (LMBOffer *) initWithBookingURL: (NSURL *) bookingURL andCity: (NSString *) city andDate: (NSDate *) date andDays: (NSNumber *) days andDeparture: (NSString *) departure andDestination: (NSString *) destination andHotelID: (NSString *) hotelID andPrice: (NSNumber *) price andRemaining: (NSNumber *) remaining andRoomDesc: (NSString *) roomDesc;
+
 @end
