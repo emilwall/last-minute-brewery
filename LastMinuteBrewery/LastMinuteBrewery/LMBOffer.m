@@ -12,19 +12,19 @@
 
 - (LMBOffer *) initWithBookingURL: (NSURL *) bookingURL andCity: (NSString *) city andDate: (NSDate *) date andDays: (NSNumber *) days andDeparture: (NSString *) departure andDestination: (NSString *) destination andHotelID: (NSString *) hotelID andPrice: (NSNumber *) price andRemaining: (NSNumber *) remaining andRoomDesc: (NSString *) roomDesc
 {
-    LMBOffer *offer = [[LMBOffer alloc] init];
-    offer.bookingURL = bookingURL;
-    offer.city = city;
-    offer.date = date;
-    offer.days = days;
-    offer.departure = departure;
-    offer.destination = destination;
-    offer.hotelid = hotelID;
-    offer.price = price;
-    offer.remaining = remaining;
-    offer.roomDesc = roomDesc;
+    self = [super init];
+    self.bookingURL = bookingURL;
+    self.city = city;
+    self.date = date;
+    self.days = days;
+    self.departure = departure;
+    self.destination = destination;
+    self.hotelid = hotelID;
+    self.price = price;
+    self.remaining = remaining;
+    self.roomDesc = roomDesc;
     
-    return offer;
+    return self;
 }
 
 @end
