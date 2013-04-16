@@ -8,6 +8,7 @@
 
 #import "LMBTripRepository.h"
 #import "LMBLastMinuteApi.h"
+#import "LMBOffer.h"
 
 @implementation LMBTripRepository
 
@@ -17,10 +18,42 @@
     return airports;
 }
 
-- (NSArray *)getOffersFrom:(NSString *)airport To:(NSString *)destination On:(NSString *)date
+- (void)getOffersFrom:(NSString *)airport
+                   to:(NSString *)destination
+                   on:(NSString *)date success:(void (^)(NSArray *result))success
+              failure:(void (^)(NSError *error))failure
 {
+    NSString *path = [[NSString alloc] initWithFormat:@"/offers/from/%@/", airport];
+    if(destination) {
+        path = [[NSString alloc] initWithFormat:@"%@to/%@/",path, destination];
+    }
+    if(date) {
+        path = [[NSString alloc] initWithFormat:@"%@on/%@/",path, date];
+    }
+    NSLog(path);
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    [[LMBLastMinuteApi sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"Success");
+         for(NSDictionary *dict in responseObject) {
+             //NSLog(@"%@ -> %@",[dict valueForKey:@"destination"], [dict valueForKey:@"city"]);
+             LMBOffer *offer = [[LMBOffer alloc] init];
+             offer.price = [dict valueForKey:@"price"];
+             offer.destination = [dict valueForKey:@"destination"];
+             [result addObject:offer];
+             
+         }
+        if(success) {
+            success(result);
+        }
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"Failure");
+         if(failure) {
+             failure(error);
+         }
+     }];
     
-    return [NSArray arrayWithObjects: @"Dummy1", @"Dummy2", @"Dummy3", nil];
+    
 }
 
 @end

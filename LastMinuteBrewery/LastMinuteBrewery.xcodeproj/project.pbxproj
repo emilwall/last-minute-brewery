@@ -21,7 +21,7 @@
 		D238C459171C670B007F2D87 /* LMBOfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C458171C670B007F2D87 /* LMBOfferViewController.m */; };
 		D2E0F974171D539100D836B8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E0F972171D537F00D836B8 /* MobileCoreServices.framework */; };
 		D2E0F975171D539100D836B8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E0F970171D537500D836B8 /* SystemConfiguration.framework */; };
-		E54EA474171D64F0004ADC1C /* LMBLastMinuteApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA473171D64F0004ADC1C /* LMBLastMinuteApi.m */; };
+		E54EA477171D7CDA004ADC1C /* LMBLastMinuteApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E54EA476171D7CDA004ADC1C /* LMBLastMinuteApi.m */; };
 		E5AE7AEA171C413400D407D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AE7AE9171C413400D407D4 /* UIKit.framework */; };
 		E5AE7AEC171C413400D407D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AE7AEB171C413400D407D4 /* Foundation.framework */; };
 		E5AE7AEE171C413400D407D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AE7AED171C413400D407D4 /* CoreGraphics.framework */; };
@@ -65,8 +65,8 @@
 		D238C458171C670B007F2D87 /* LMBOfferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBOfferViewController.m; sourceTree = "<group>"; };
 		D2E0F970171D537500D836B8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D2E0F972171D537F00D836B8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		E54EA472171D64F0004ADC1C /* LMBLastMinuteApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMBLastMinuteApi.h; path = ../../../AFNetTest2/LMBLastMinuteApi.h; sourceTree = "<group>"; };
-		E54EA473171D64F0004ADC1C /* LMBLastMinuteApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMBLastMinuteApi.m; path = ../../../AFNetTest2/LMBLastMinuteApi.m; sourceTree = "<group>"; };
+		E54EA475171D7CDA004ADC1C /* LMBLastMinuteApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBLastMinuteApi.h; sourceTree = "<group>"; };
+		E54EA476171D7CDA004ADC1C /* LMBLastMinuteApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBLastMinuteApi.m; sourceTree = "<group>"; };
 		E5AE7AE6171C413400D407D4 /* LastMinuteBrewery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LastMinuteBrewery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AE7AE9171C413400D407D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E5AE7AEB171C413400D407D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -151,8 +151,8 @@
 		E54EA471171D64BA004ADC1C /* Communication */ = {
 			isa = PBXGroup;
 			children = (
-				E54EA472171D64F0004ADC1C /* LMBLastMinuteApi.h */,
-				E54EA473171D64F0004ADC1C /* LMBLastMinuteApi.m */,
+				E54EA475171D7CDA004ADC1C /* LMBLastMinuteApi.h */,
+				E54EA476171D7CDA004ADC1C /* LMBLastMinuteApi.m */,
 			);
 			name = Communication;
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 				11030502171C49C6001C32C0 /* LMBTripRepository.m in Sources */,
 				D238C456171C61A1007F2D87 /* LMBOffer.m in Sources */,
 				D238C459171C670B007F2D87 /* LMBOfferViewController.m in Sources */,
-				E54EA474171D64F0004ADC1C /* LMBLastMinuteApi.m in Sources */,
+				E54EA477171D7CDA004ADC1C /* LMBLastMinuteApi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

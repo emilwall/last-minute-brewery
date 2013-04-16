@@ -12,7 +12,10 @@
 
 - (NSArray *)getAllAirports;
 
-- (NSArray *)getOffersFrom:(NSString *)airport To:(NSString *)destination On:(NSString *)date;
+- (void)getOffersFrom:(NSString *)airport
+                   to:(NSString *)destination
+                   on:(NSString *)date success:(void (^)(NSArray *result))success
+              failure:(void (^)(NSError *error))failure;
 
 
 @end

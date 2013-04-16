@@ -9,6 +9,7 @@
 #import "LMBTripTableViewController.h"
 #import "LMBTripRepository.h"
 #import "LMBTripTableViewCell.h"
+#import "LMBOffer.h"
 
 @interface LMBTripTableViewController ()
 @property (nonatomic, strong) LMBTripRepository *tripRepository;
@@ -22,7 +23,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -30,11 +31,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.results = [NSArray array];
         
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     self.tripRepository = [[LMBTripRepository alloc] init];
-    self.results = [self.tripRepository getAllAirports];
+
+    [self.tripRepository getOffersFrom:@"Stockholm/Arlanda" to:@"Kreta" on:@"2013-03-20" success:^(NSArray *result) {
+        self.results = result;
+        [self.tableView reloadData ];
+    } failure:^(NSError *error) {
+        NSLog(@"Outer error!");
+    }];
+    //self.results = [self.tripRepository getOffersFrom:@"Stockholm/Arlanda" To:@"Kreta" On:@"2013-03-20"];
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -56,7 +66,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[self.tripRepository getAllAirports] count];
+    return [self.results count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,8 +74,9 @@
     LMBTripTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    NSString *airport = [[self.tripRepository getAllAirports] objectAtIndex:indexPath.row];
-    cell.titleLabel.text = airport;
+    
+    NSString *item = [self.results objectAtIndex:indexPath.row];
+    cell.titleLabel.text = ((LMBOffer*)item).destination;
     
     return cell;
 }
