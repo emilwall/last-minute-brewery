@@ -7,6 +7,7 @@
 //
 
 #import "LMBTripRepository.h"
+#import "LMBLastMinuteApi.h"
 
 @implementation LMBTripRepository
 
@@ -18,6 +19,7 @@
 
 - (NSArray *)getOffersFrom:(NSString *)airport To:(NSString *)destination On:(NSString *)date
 {
+    
     return [NSArray arrayWithObjects: @"Dummy1", @"Dummy2", @"Dummy3", nil];
 }
 
