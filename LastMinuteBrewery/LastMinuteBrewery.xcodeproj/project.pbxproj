@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		11030502171C49C6001C32C0 /* LMBTripRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 11030501171C49C6001C32C0 /* LMBTripRepository.m */; };
 		11030569171D7D9B001C32C0 /* LMBSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11030568171D7D9B001C32C0 /* LMBSearchViewController.m */; };
+		1103056B171DB305001C32C0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1103056A171DB305001C32C0 /* Default-568h@2x.png */; };
 		D238C449171C4661007F2D87 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C437171C4661007F2D87 /* AFHTTPClient.m */; };
 		D238C44A171C4661007F2D87 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C439171C4661007F2D87 /* AFHTTPRequestOperation.m */; };
 		D238C44B171C4661007F2D87 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C43B171C4661007F2D87 /* AFImageRequestOperation.m */; };
@@ -43,6 +44,7 @@
 		11030501171C49C6001C32C0 /* LMBTripRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBTripRepository.m; sourceTree = "<group>"; };
 		11030567171D7D9B001C32C0 /* LMBSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBSearchViewController.h; sourceTree = "<group>"; };
 		11030568171D7D9B001C32C0 /* LMBSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBSearchViewController.m; sourceTree = "<group>"; };
+		1103056A171DB305001C32C0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D238C436171C4661007F2D87 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		D238C437171C4661007F2D87 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		D238C438171C4661007F2D87 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		E5AE7ADD171C413400D407D4 = {
 			isa = PBXGroup;
 			children = (
+				1103056A171DB305001C32C0 /* Default-568h@2x.png */,
 				E54EA471171D64BA004ADC1C /* Communication */,
 				D238C435171C4661007F2D87 /* AFNetworking */,
 				E5AE7AEF171C413400D407D4 /* LastMinuteBrewery */,
@@ -286,6 +289,7 @@
 				E5AE7AFE171C413400D407D4 /* Default@2x.png in Resources */,
 				E5AE7B00171C413400D407D4 /* Default-568h@2x.png in Resources */,
 				E5AE7B03171C413400D407D4 /* MainStoryboard.storyboard in Resources */,
+				1103056B171DB305001C32C0 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

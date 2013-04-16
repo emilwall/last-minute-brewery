@@ -7,9 +7,11 @@
 //
 
 #import "LMBSearchViewController.h"
+#import "LMBLastMinuteApi.h"
+#import "LMBTripTableViewController.h"
 
 @interface LMBSearchViewController ()
-
+@property (nonatomic, strong) LMBLastMinuteApi *api;
 @end
 
 @implementation LMBSearchViewController
@@ -17,7 +19,12 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [self.pickerDataSource objectAtIndex:row];
+    id rowData = [self.currentPickerDataSource objectAtIndex:row];
+    
+    if ([[rowData class] isSubclassOfClass:[NSString class]])
+        return rowData;
+    else
+        return [(NSDictionary *)rowData objectForKey:@"name"];
 }
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -25,7 +32,7 @@
 }
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return [self.pickerDataSource count];
+    return [self.currentPickerDataSource count];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -41,9 +48,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.airports = [NSArray arrayWithObjects:@"Stockholm/Arlanda", @"Götet", nil];
+    self.api = [LMBLastMinuteApi sharedClient];
+    
+    [self.api getPath:@"/airports" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.airports = responseObject;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }];
+    
+    [self.api getPath:@"/destinations" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.destinations = responseObject;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }];
+    
     self.destinations = [NSArray arrayWithObjects:@"Paris", @"London", @"Stockholm", @"Helsinki", nil];
-    self.hotels = [NSArray arrayWithObjects:@"Hotel Inn", @"The Mad Hatter", @"The Jugged Hare", nil];
+    self.hotels = [NSArray arrayWithObjects:nil];
 }
 
 -(void)dismissPickerView
@@ -53,7 +71,27 @@
         rect.origin.y = self.view.frame.size.height;
         self.pickerView.frame = rect;
     }];
+    
+    id selected = [self.currentPickerDataSource objectAtIndex:[self.picker selectedRowInComponent:0]];
+    
+    if (self.currentPickerDataSource == self.airports)
+        [self setSelectedAirport:selected];
+    else if (self.currentPickerDataSource == self.destinations)
+        [self setSelectedDestination:selected];
+
+    self.currentPushButton = nil;
 }
+
+-(void)setSelectedAirport:(id)airport
+{
+    self.airport = airport;
+}
+
+-(void)setSelectedDestination:(id)destination
+{
+    self.destination = destination;
+}
+
 -(void)showPickerView
 {
     [self.picker reloadAllComponents];
@@ -75,17 +113,20 @@
 }
 - (IBAction)didPushFromAirport:(id)sender
 {
-    self.pickerDataSource = self.airports;
+    self.currentPickerDataSource = self.airports;
+    self.currentPushButton = sender;
     [self showPickerView];
 }
 - (IBAction)didPushToDestination:(id)sender
 {
-    self.pickerDataSource = self.destinations;
+    self.currentPickerDataSource = self.destinations;
+    self.currentPushButton = sender;
     [self showPickerView];
 }
 - (IBAction)didPushHotel:(id)sender
 {
-    self.pickerDataSource = self.hotels;
+    self.currentPickerDataSource = self.hotels;
+    self.currentPushButton = sender;
     [self showPickerView];
 }
 
@@ -94,6 +135,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue.destinationViewController class] isSubclassOfClass:[LMBTripTableViewController class]])
+    {
+        LMBTripTableViewController *trips = (LMBTripTableViewController *)segue.destinationViewController;
+        
+        trips.airport = [(NSDictionary *)self.airport objectForKey:@"name"];
+        trips.destination = (NSString *)self.destination;
+        trips.date = nil;
+    }
 }
 
 @end

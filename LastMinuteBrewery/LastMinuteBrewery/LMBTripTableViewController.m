@@ -14,7 +14,6 @@
 @interface LMBTripTableViewController ()
 @property (nonatomic, strong) LMBTripRepository *tripRepository;
 @property (nonatomic, strong) NSArray *results;
-@property (nonatomic, strong) NSString *airport, *destination, *date;
 @end
 
 @implementation LMBTripTableViewController
@@ -38,7 +37,7 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     self.tripRepository = [[LMBTripRepository alloc] init];
 
-    [self.tripRepository getOffersFrom:@"Stockholm/Arlanda" to:@"Kreta" on:@"2013-03-20" success:^(NSArray *result) {
+    [self.tripRepository getOffersFrom:self.airport to:self.destination on:self.date success:^(NSArray *result) {
         self.results = result;
         [self.tableView reloadData ];
     } failure:^(NSError *error) {

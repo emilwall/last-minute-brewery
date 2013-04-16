@@ -14,7 +14,11 @@
 @property (nonatomic, strong) IBOutlet UIPickerView *picker;
 @property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
 
-@property (nonatomic, strong) NSArray *pickerDataSource;
+@property (nonatomic, strong) NSArray *currentPickerDataSource;
+@property (nonatomic, strong) id currentPushButton;
+
+@property (nonatomic, strong) id airport;
+@property (nonatomic, strong) id destination;
 
 @property (nonatomic, strong) NSArray *airports;
 @property (nonatomic, strong) NSArray *destinations;

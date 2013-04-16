@@ -10,5 +10,6 @@
 
 @interface LMBTripTableViewController : UITableViewController
 
+@property (nonatomic, strong) NSString *airport, *destination, *date;
 
 @end
