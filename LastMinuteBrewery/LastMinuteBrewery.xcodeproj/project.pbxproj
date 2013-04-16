@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11030502171C49C6001C32C0 /* LMBTripRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 11030501171C49C6001C32C0 /* LMBTripRepository.m */; };
+		11030569171D7D9B001C32C0 /* LMBSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11030568171D7D9B001C32C0 /* LMBSearchViewController.m */; };
 		D238C449171C4661007F2D87 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C437171C4661007F2D87 /* AFHTTPClient.m */; };
 		D238C44A171C4661007F2D87 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C439171C4661007F2D87 /* AFHTTPRequestOperation.m */; };
 		D238C44B171C4661007F2D87 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D238C43B171C4661007F2D87 /* AFImageRequestOperation.m */; };
@@ -40,6 +41,8 @@
 /* Begin PBXFileReference section */
 		11030500171C49C6001C32C0 /* LMBTripRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBTripRepository.h; sourceTree = "<group>"; };
 		11030501171C49C6001C32C0 /* LMBTripRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBTripRepository.m; sourceTree = "<group>"; };
+		11030567171D7D9B001C32C0 /* LMBSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBSearchViewController.h; sourceTree = "<group>"; };
+		11030568171D7D9B001C32C0 /* LMBSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBSearchViewController.m; sourceTree = "<group>"; };
 		D238C436171C4661007F2D87 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		D238C437171C4661007F2D87 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		D238C438171C4661007F2D87 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				E5AE7AF8171C413400D407D4 /* LMBAppDelegate.h */,
 				E5AE7AF9171C413400D407D4 /* LMBAppDelegate.m */,
 				E5AE7B01171C413400D407D4 /* MainStoryboard.storyboard */,
+				11030567171D7D9B001C32C0 /* LMBSearchViewController.h */,
+				11030568171D7D9B001C32C0 /* LMBSearchViewController.m */,
 				E5AE7B0F171C436600D407D4 /* LMBTripTableViewCell.h */,
 				11030500171C49C6001C32C0 /* LMBTripRepository.h */,
 				E5AE7B10171C436600D407D4 /* LMBTripTableViewCell.m */,
@@ -309,6 +314,7 @@
 				D238C456171C61A1007F2D87 /* LMBOffer.m in Sources */,
 				D238C459171C670B007F2D87 /* LMBOfferViewController.m in Sources */,
 				E54EA477171D7CDA004ADC1C /* LMBLastMinuteApi.m in Sources */,
+				11030569171D7D9B001C32C0 /* LMBSearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
