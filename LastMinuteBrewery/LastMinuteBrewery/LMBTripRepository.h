@@ -21,4 +21,10 @@
                 onSuccess: (void (^)(NSDictionary *result))success
                 onFailure:(void (^)(NSError *error))failure;
 
+- (void)getHotelImageWithID: (NSString *) hotelID
+                   andWidth: (NSNumber *) width
+                  andHeight: (NSNumber *) height
+                  onSuccess: (void (^)(NSData *result))success
+                  onFailure:(void (^)(NSError *error))failure;
+
 @end

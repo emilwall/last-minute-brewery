@@ -33,6 +33,8 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
+    self.hotelWebView.scrollView.scrollEnabled = NO;
+    
     self.offer = [[LMBOffer alloc] initWithBookingURL:[NSURL URLWithString:@"http://google.se"] andCity:@"Paris" andDate:[formatter dateFromString:@"2013-04-08T10:05:00.0000000+00:00"] andDays:[NSNumber numberWithInt: 7] andDeparture:@"Stockholm" andDestination:@"Paris" andHotelID:@"49" andPrice:[NSNumber numberWithInt: 3303] andRemaining:[NSNumber numberWithInt: 2] andRoomDesc:@"dubbelrum"];
     
     [self updateViewWithOffer: self.offer];
@@ -50,6 +52,13 @@
         [self.tripRepository getHotelByHotelID:self.offer.hotelid onSuccess:^(NSDictionary *result) {
             NSLog(@"%@", [result valueForKey:@"name"]);
             [self.hotelWebView loadHTMLString:[result valueForKey:@"html"] baseURL:nil];
+            /*if ([result valueForKey:@"hasImage"]) {
+                [self.tripRepository getHotelImageWithID:self.offer.hotelid andWidth:<#(NSNumber *)#> andHeight:<#(NSNumber *)#> onSuccess:^(NSData *result) {
+                    <#code#>
+                } onFailure:^(NSError *error) {
+                    <#code#>
+                }]
+            }*/
         } onFailure:^(NSError *error) {
             NSLog(@"Fail");
         }];
@@ -66,6 +75,8 @@
     aWebView.frame = frame;
     
     NSLog(@"size: %f, %f", fittingSize.width, fittingSize.height);
+    
+    self.container.contentSize = CGSizeMake(320, aWebView.frame.origin.y + fittingSize.height);
 }
 
 - (IBAction)bookingAction:(id)sender

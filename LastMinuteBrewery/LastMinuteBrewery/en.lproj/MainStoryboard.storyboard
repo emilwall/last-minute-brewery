@@ -274,7 +274,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="m6b-Zk-CL6">
+                            <webView contentMode="scaleToFill" id="m6b-Zk-CL6">
                                 <rect key="frame" x="0.0" y="303" width="320" height="201"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -283,11 +283,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </webView>
                             <view contentMode="scaleToFill" id="RDD-lb-m0d">
-                                <rect key="frame" x="0.0" y="457" width="320" height="47"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0cL-9l-Gco">
-                                        <rect key="frame" x="20" y="2" width="280" height="44"/>
+                                        <rect key="frame" x="0.0" y="64" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Boka">
@@ -309,6 +309,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </scrollView>
                     <navigationItem key="navigationItem" title="Resa" id="eg0-Zq-VQZ"/>
                     <connections>
+                        <outlet property="container" destination="KhV-WS-nft" id="uUj-Qq-cJI"/>
                         <outlet property="dateLabel" destination="aki-6k-w0u" id="fDB-GO-grd"/>
                         <outlet property="departureLabel" destination="clc-iq-RXR" id="FSn-ea-07u"/>
                         <outlet property="durationLabel" destination="OZD-qo-4dx" id="hfZ-P5-jqF"/>
@@ -343,6 +344,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LMBOfferViewController.h"/>
             <relationships>
                 <relationship kind="action" name="bookingAction:"/>
+                <relationship kind="outlet" name="container" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="departureLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="durationLabel" candidateClass="UILabel"/>

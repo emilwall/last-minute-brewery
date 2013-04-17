@@ -76,4 +76,25 @@
     }];
 }
 
+- (void)getHotelImageWithID: (NSString *) hotelID
+                   andWidth: (NSNumber *) width
+                  andHeight: (NSNumber *) height
+                  onSuccess: (void (^)(NSData *result))success
+                  onFailure:(void (^)(NSError *error))failure
+{
+    NSString *path = [NSString stringWithFormat:@"/offer/hotel/%@/image/width/%@/height/%@", hotelID, [width stringValue], [height stringValue]];
+    [[LMBLastMinuteApi sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success!");
+        if(success) {
+            success(responseObject);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failure..");
+        if(failure) {
+            failure(error);
+        }
+    }];
+    
+}
+
 @end

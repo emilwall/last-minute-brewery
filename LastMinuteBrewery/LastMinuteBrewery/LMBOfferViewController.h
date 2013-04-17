@@ -19,6 +19,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *durationLabel;
 @property (nonatomic, strong) IBOutlet UILabel *priceLabel;
 @property (nonatomic, strong) IBOutlet UIWebView *hotelWebView;
+@property (nonatomic, strong) IBOutlet UIScrollView *container;
 
 
 @property (nonatomic, strong) LMBOffer *offer;
