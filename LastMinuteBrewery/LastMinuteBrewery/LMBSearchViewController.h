@@ -11,8 +11,14 @@
 @interface LMBSearchViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, strong) IBOutlet UIView *pickerView;
+@property (nonatomic, strong) IBOutlet UIView *datePickerView;
 @property (nonatomic, strong) IBOutlet UIPickerView *picker;
 @property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
+
+@property (nonatomic, strong) IBOutlet UIButton *fromButton;
+@property (nonatomic, strong) IBOutlet UIButton *toButton;
+@property (nonatomic, strong) IBOutlet UIButton *dateButton;
+@property (nonatomic, strong) IBOutlet UIButton *searchButton;
 
 @property (nonatomic, strong) NSArray *currentPickerDataSource;
 @property (nonatomic, strong) id currentPushButton;
@@ -25,6 +31,7 @@
 @property (nonatomic, strong) NSArray *hotels;
 
 -(IBAction) didPushDoneInPickerView:(id)sender;
+-(IBAction) didPushDoneInDatePickerView:(id)sender;
 -(IBAction) didPushFromAirport:(id)sender;
 -(IBAction) didPushToDestination:(id)sender;
 -(IBAction) didPushHotel:(id)sender;

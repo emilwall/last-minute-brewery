@@ -84,11 +84,13 @@
 
 -(void)setSelectedAirport:(id)airport
 {
+    [self.fromButton setTitle:[(NSDictionary *)airport objectForKey:@"name"] forState:UIControlStateNormal];
     self.airport = airport;
 }
 
 -(void)setSelectedDestination:(id)destination
 {
+    [self.toButton setTitle:destination forState:UIControlStateNormal];
     self.destination = destination;
 }
 
@@ -106,10 +108,30 @@
 {
     [self dismissPickerView];
 }
+-(IBAction) didPushDoneInDatePickerView:(id)sender
+{
+    [UIView animateWithDuration:0.4 animations:^{
+        CGRect rect = self.datePickerView.frame;
+        rect.origin.y = self.view.frame.size.height;
+        self.datePickerView.frame = rect;
+    }];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    
+    NSDate *date = [self.datePicker date];
+    NSString *formattedDateString = [dateFormatter stringFromDate:date];
+    
+    [self.dateButton setTitle:formattedDateString forState:UIControlStateNormal];
+}
 
 - (IBAction)didPushDate:(id)sender
 {
-    
+    [UIView animateWithDuration:0.4 animations:^{
+        CGRect rect = self.datePickerView.frame;
+        rect.origin.y = self.view.frame.size.height - rect.size.height;
+        self.datePickerView.frame = rect;
+    }];
 }
 - (IBAction)didPushFromAirport:(id)sender
 {
@@ -145,7 +167,7 @@
         
         trips.airport = [(NSDictionary *)self.airport objectForKey:@"name"];
         trips.destination = (NSString *)self.destination;
-        trips.date = nil;
+        trips.date = [self.dateButton titleForState:UIControlStateNormal];
     }
 }
 
