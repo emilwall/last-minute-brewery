@@ -24,7 +24,7 @@
 - (void)getHotelImageWithID: (NSString *) hotelID
                    andWidth: (NSNumber *) width
                   andHeight: (NSNumber *) height
-                  onSuccess: (void (^)(NSData *result))success
+                  onSuccess: (void (^)(UIImage *result))success
                   onFailure:(void (^)(NSError *error))failure;
 
 @end

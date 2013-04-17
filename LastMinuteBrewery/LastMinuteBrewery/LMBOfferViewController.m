@@ -7,7 +7,7 @@
 //
 
 #import "LMBOfferViewController.h"
-
+#import "UIImageView+AFNetworking.h"
 
 @interface LMBOfferViewController ()
 
@@ -31,14 +31,20 @@
     
     self.tripRepository = [[LMBTripRepository alloc] init];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     
     self.hotelWebView.scrollView.scrollEnabled = NO;
     
-    self.offer = [[LMBOffer alloc] initWithBookingURL:[NSURL URLWithString:@"http://google.se"] andCity:@"Paris" andDate:[formatter dateFromString:@"2013-04-08T10:05:00.0000000+00:00"] andDays:[NSNumber numberWithInt: 7] andDeparture:@"Stockholm" andDestination:@"Paris" andHotelID:@"49" andPrice:[NSNumber numberWithInt: 3303] andRemaining:[NSNumber numberWithInt: 2] andRoomDesc:@"dubbelrum"];
+    //self.offer = [[LMBOffer alloc] initWithBookingURL:[NSURL URLWithString:@"http://google.se"] andCity:@"Paris" andDate:[formatter dateFromString:@"2013-04-08T10:05:00.0000000+00:00"] andDays:[NSNumber numberWithInt: 7] andDeparture:@"Stockholm" andDestination:@"Paris" andHotelID:@"49" andPrice:[NSNumber numberWithInt: 3303] andRemaining:[NSNumber numberWithInt: 2] andRoomDesc:@"dubbelrum"];
     
     [self updateViewWithOffer: self.offer];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    NSString *imageUrl = [NSString stringWithFormat:@"http://travel-offers-api.apphb.com/offer/hotel/%@/image/width/%d/height/%d", self.offer.hotelid, (int)self.image.frame.size.width, (int)self.image.frame.size.height];
     
+    [self.image setImageWithURL:[NSURL URLWithString:imageUrl]];
 }
 
 - (void) updateViewWithOffer: (LMBOffer *) offer
@@ -52,13 +58,6 @@
         [self.tripRepository getHotelByHotelID:self.offer.hotelid onSuccess:^(NSDictionary *result) {
             NSLog(@"%@", [result valueForKey:@"name"]);
             [self.hotelWebView loadHTMLString:[result valueForKey:@"html"] baseURL:nil];
-            /*if ([result valueForKey:@"hasImage"]) {
-                [self.tripRepository getHotelImageWithID:self.offer.hotelid andWidth:<#(NSNumber *)#> andHeight:<#(NSNumber *)#> onSuccess:^(NSData *result) {
-                    <#code#>
-                } onFailure:^(NSError *error) {
-                    <#code#>
-                }]
-            }*/
         } onFailure:^(NSError *error) {
             NSLog(@"Fail");
         }];

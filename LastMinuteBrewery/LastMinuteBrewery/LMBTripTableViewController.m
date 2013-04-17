@@ -10,6 +10,7 @@
 #import "LMBTripRepository.h"
 #import "LMBTripTableViewCell.h"
 #import "LMBOffer.h"
+#import "LMBOfferViewController.h"
 
 @interface LMBTripTableViewController ()
 @property (nonatomic, strong) LMBTripRepository *tripRepository;
@@ -76,6 +77,16 @@
     {
         self.results = self.resultshadow;
         [self.tableView reloadData];
+    }
+}
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue.destinationViewController class] isSubclassOfClass:[LMBOfferViewController class]])
+    {
+        LMBOfferViewController *offer = (LMBOfferViewController *)segue.destinationViewController;
+        NSIndexPath *indexpath = [self.tableView indexPathForSelectedRow];
+        offer.offer = [self.results objectAtIndex:indexpath.row];
     }
 }
 

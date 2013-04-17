@@ -9,6 +9,9 @@
 
 #import "AFNetworking.h"
 
+
 @interface LMBLastMinuteApi : AFHTTPClient
 + (LMBLastMinuteApi *)sharedClient;
+
+
 @end

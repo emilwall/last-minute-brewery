@@ -10,6 +10,7 @@
 #import "LMBLastMinuteApi.h"
 #import "LMBOffer.h"
 
+
 @implementation LMBTripRepository
 
 - (NSArray *)getAllAirports
@@ -36,12 +37,15 @@
     [[LMBLastMinuteApi sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          NSLog(@"Success");
+         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
          for(NSDictionary *dict in responseObject) {
              //NSLog(@"%@ -> %@",[dict valueForKey:@"destination"], [dict valueForKey:@"city"]);
-             LMBOffer *offer = [[LMBOffer alloc] init];
+             //LMBOffer *offer = [[LMBOffer alloc] init];
              
-             offer.price = [dict valueForKey:@"price"];
-             offer.destination = [dict valueForKey:@"destination"];
+             LMBOffer *offer = [[LMBOffer alloc] initWithBookingURL:[NSURL URLWithString:[dict valueForKey:@"bookingUrl"]] andCity:[dict valueForKey:@"city"] andDate:[formatter dateFromString:[dict valueForKey:@"date"]] andDays:[dict valueForKey:@"days"] andDeparture:[dict valueForKey:@"departure"] andDestination:[dict valueForKey:@"destination"] andHotelID:[dict valueForKey:@"hotelId"] andPrice:[dict valueForKey:@"price"] andRemaining:[dict valueForKey:@"remaining"] andRoomDesc:[dict valueForKey:@"roomDesc"]];
+             
+             //offer.price = [dict valueForKey:@"price"];
+             //offer.destination = [dict valueForKey:@"destination"];
              [result addObject:offer];
              
          }
@@ -63,6 +67,7 @@
                 onFailure:(void (^)(NSError *error))failure
 {
     NSString *path = [NSString stringWithFormat:@"/offer/hotel/%@", hotelid];
+    NSLog(path);
     [[LMBLastMinuteApi sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"Success!");
         if(success) {
@@ -79,11 +84,12 @@
 - (void)getHotelImageWithID: (NSString *) hotelID
                    andWidth: (NSNumber *) width
                   andHeight: (NSNumber *) height
-                  onSuccess: (void (^)(NSData *result))success
+                  onSuccess: (void (^)(UIImage *result))success
                   onFailure:(void (^)(NSError *error))failure
 {
     NSString *path = [NSString stringWithFormat:@"/offer/hotel/%@/image/width/%@/height/%@", hotelID, [width stringValue], [height stringValue]];
-    [[LMBLastMinuteApi sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSLog(path);
+    [[LMBLastMinuteApi sharedClient] getPath:path parameters:nil success:^(AFHTTPRequestOperation *operation, UIImage *responseObject) {
         NSLog(@"Success!");
         if(success) {
             success(responseObject);
